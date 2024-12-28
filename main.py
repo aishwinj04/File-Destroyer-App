@@ -60,9 +60,6 @@ layout.addWidget(message, alignment=Qt.AlignmentFlag.AlignCenter)
 
 
 
-
-
-
 window.setLayout(layout)
 window.show()
 app.exec()
