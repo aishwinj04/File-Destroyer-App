@@ -24,7 +24,10 @@ def destory_files():
             file.write(b'')  # overwrite content
         path.unlink()  # delete
 
-    message.setText("Files Deleted")
+    if not filenames:
+        message.setText("None Selected")
+    else:
+     message.setText("Files Deleted")
 
 app = QApplication([])
 window = QWidget()
