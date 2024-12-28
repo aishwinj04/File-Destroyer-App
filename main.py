@@ -1,5 +1,12 @@
-from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QPushButton
+from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QPushButton, QFileDialog
 from PyQt6.QtCore import Qt # alignment 
+
+# slot function 
+def open_files():
+    filenames, _ = QFileDialog.getOpenFileName(window, 'Select Files')
+    print(filenames)
+    print(_)
+
 
 
 app = QApplication([])
@@ -19,12 +26,15 @@ select_btn = QPushButton('Select Files')
 select_btn.setToolTip('Select Files') # hover
 select_btn.setFixedWidth(200)
 layout.addWidget(select_btn, alignment=Qt.AlignmentFlag.AlignCenter) 
+select_btn.clicked.connect(open_files)
 
 # button2 for destroy action 
 destroy_btn = QPushButton('Destroy Files')
 destroy_btn.setToolTip('Delete Files')
 destroy_btn.setFixedWidth(200)
 layout.addWidget(destroy_btn, alignment=Qt.AlignmentFlag.AlignCenter)
+
+
 
 
 
