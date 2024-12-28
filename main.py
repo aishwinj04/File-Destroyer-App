@@ -1,11 +1,14 @@
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QPushButton, QFileDialog
 from PyQt6.QtCore import Qt # alignment 
+from pathlib import Path
 
 # slot function 
 def open_files():
-    filenames, _ = QFileDialog.getOpenFileName(window, 'Select Files')
-    print(filenames)
-    print(_)
+    filenames, _ = QFileDialog.getOpenFileNames(window, 'Select Files')
+    #print(filenames)
+    #print(_)
+
+
 
 
 
