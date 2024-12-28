@@ -18,7 +18,7 @@ This is a Python program with a graphical user interface (GUI) that allows users
 ## Features
 
 - Allows selection of multiple files for deletion.
-- Overwrites file contents and deletes them permanently.
+- Overwrites file contents and deletes them permanently (Ensures file contents are not recoverable)
 - Intuitive GUI with feedback messages for the user.
 - Simple, one-click file deletion process.
 - Cautionary warning to inform users about the irreversible nature of the action.
