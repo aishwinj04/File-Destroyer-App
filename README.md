@@ -23,3 +23,6 @@ This is a Python program with a graphical user interface (GUI) that allows users
 - Simple, one-click file deletion process.
 - Cautionary warning to inform users about the irreversible nature of the action.
 
+## Imports Used
+- PyQt6 for GUI
+- Pathlib 
