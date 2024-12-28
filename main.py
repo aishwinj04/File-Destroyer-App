@@ -8,16 +8,23 @@ def open_files():
     filenames, _ = QFileDialog.getOpenFileNames(window, 'Select Files')
     #print(filenames)
     #print(_)
+    
+    message_format = '\n'.join(filenames)
+    message.setText(message_format)
+
 
     return filenames
 
 def destory_files():
+
     for filename in filenames:  # string
         path = Path(filename)  # path object
         print(path)
         with open(path, 'wb') as file:  # file
             file.write(b'')  # overwrite content
         path.unlink()  # delete
+
+    message.setText("Files Deleted")
 
 app = QApplication([])
 window = QWidget()
@@ -46,7 +53,9 @@ destroy_btn.setFixedWidth(200)
 destroy_btn.clicked.connect(destory_files)
 layout.addWidget(destroy_btn, alignment=Qt.AlignmentFlag.AlignCenter)
 
-
+# output message
+message = QLabel('')
+layout.addWidget(message, alignment=Qt.AlignmentFlag.AlignCenter)
 
 
 
