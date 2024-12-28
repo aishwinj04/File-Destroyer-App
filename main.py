@@ -2,15 +2,22 @@ from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QPushBut
 from PyQt6.QtCore import Qt # alignment 
 from pathlib import Path
 
-# slot function 
+# slot functions
 def open_files():
+    global filenames
     filenames, _ = QFileDialog.getOpenFileNames(window, 'Select Files')
     #print(filenames)
     #print(_)
 
+    return filenames
 
-
-
+def destory_files():
+    for filename in filenames:  # string
+        path = Path(filename)  # path object
+        print(path)
+        with open(path, 'wb') as file:  # file
+            file.write(b'')  # overwrite content
+        path.unlink()  # delete
 
 app = QApplication([])
 window = QWidget()
@@ -28,14 +35,18 @@ layout.addWidget(header_label)
 select_btn = QPushButton('Select Files')
 select_btn.setToolTip('Select Files') # hover
 select_btn.setFixedWidth(200)
-layout.addWidget(select_btn, alignment=Qt.AlignmentFlag.AlignCenter) 
 select_btn.clicked.connect(open_files)
+layout.addWidget(select_btn, alignment=Qt.AlignmentFlag.AlignCenter) 
+
 
 # button2 for destroy action 
 destroy_btn = QPushButton('Destroy Files')
 destroy_btn.setToolTip('Delete Files')
 destroy_btn.setFixedWidth(200)
+destroy_btn.clicked.connect(destory_files)
 layout.addWidget(destroy_btn, alignment=Qt.AlignmentFlag.AlignCenter)
+
+
 
 
 
